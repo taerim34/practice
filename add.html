@@ -2,36 +2,313 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8" />
-<title>권영훈 추가</title>
+<title>🚨💥 권영훈 책 추가 💥🚨</title>
 <link rel="stylesheet" href="style.css" />
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Pacifico&family=Press+Start+2P&family=Rubik+Glitch&display=swap');
+
+  body.flashy {
+    background:
+      radial-gradient(circle at 20% 30%, rgba(255,0,110,0.9), transparent 40%),
+      radial-gradient(circle at 80% 60%, rgba(58,134,255,0.9), transparent 40%),
+      radial-gradient(circle at 50% 90%, rgba(6,255,165,0.9), transparent 40%),
+      linear-gradient(135deg, #ffbe0b, #ff006e, #8338ec);
+    background-size: 100% 100%, 100% 100%, 100% 100%, 400% 400%;
+    animation: bgShift 6s ease infinite;
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+  @keyframes bgShift {
+    0%,100% { background-position: 0 0, 100% 100%, 50% 50%, 0% 50%; }
+    50% { background-position: 100% 100%, 0 0, 30% 70%, 100% 50%; }
+  }
+
+  body.flashy nav {
+    background: linear-gradient(90deg, #ff006e, #ffbe0b, #06ffa5, #3a86ff, #8338ec, #ff006e);
+    background-size: 500% 500%;
+    animation: navshift 4s linear infinite;
+    border-bottom: 5px groove #fff;
+    box-shadow: 0 0 40px #ffff00, 0 0 80px #ff00ff;
+  }
+  @keyframes navshift {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 500% 50%; }
+  }
+  body.flashy nav a, body.flashy nav .brand {
+    color: #fff !important;
+    text-shadow: 2px 2px 0 #000, 0 0 15px #ffff00;
+    font-family: 'Bungee Shade', cursive;
+    font-size: 1.3rem;
+  }
+  body.flashy nav a.active { animation: activeFlash 0.6s infinite alternate; }
+  @keyframes activeFlash {
+    0% { color: #ffff00 !important; transform: scale(1); }
+    100% { color: #00ffff !important; transform: scale(1.2); }
+  }
+
+  main { position: relative; z-index: 2; padding-bottom: 4rem; }
+
+  .add-title {
+    font-family: 'Rubik Glitch', cursive;
+    font-size: clamp(2.5rem, 8vw, 5.5rem);
+    text-align: center;
+    color: #fff;
+    text-shadow:
+      4px 4px 0 #ff006e,
+      -4px -4px 0 #00ffff,
+      0 0 30px #ffff00;
+    margin: 2rem 0;
+    animation: titleJump 0.8s ease-in-out infinite;
+    letter-spacing: 4px;
+  }
+  @keyframes titleJump {
+    0%,100% { transform: translateY(0) rotate(-2deg); }
+    50% { transform: translateY(-15px) rotate(2deg); }
+  }
+
+  .add-wrap {
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(10px);
+    border: 5px double #ffff00;
+    border-radius: 30px;
+    padding: 2rem !important;
+    box-shadow: 0 0 40px #ff00ff, 0 0 80px #00ffff, inset 0 0 40px rgba(255,0,110,0.3);
+    animation: wrapGlow 3s ease-in-out infinite;
+  }
+  @keyframes wrapGlow {
+    0%,100% { box-shadow: 0 0 40px #ff00ff, 0 0 80px #00ffff; }
+    50% { box-shadow: 0 0 60px #ffff00, 0 0 120px #ff006e; }
+  }
+
+  form label {
+    font-family: 'Press Start 2P', cursive !important;
+    font-size: 0.75rem !important;
+    color: #ffff00 !important;
+    text-shadow: 2px 2px 0 #000, 0 0 10px #ff00ff;
+    letter-spacing: 1px;
+  }
+  form input, form select, form textarea {
+    background: rgba(255,255,255,0.95) !important;
+    border: 3px dashed #ff006e !important;
+    border-radius: 12px !important;
+    padding: 0.9rem !important;
+    font-family: 'Pacifico', cursive !important;
+    font-size: 1.1rem !important;
+    color: #8338ec !important;
+    box-shadow: 0 0 15px rgba(255,255,0,0.5);
+    transition: all 0.3s;
+  }
+  form input:focus, form select:focus, form textarea:focus {
+    border-color: #00ffff !important;
+    box-shadow: 0 0 25px #00ffff, 0 0 50px #ff00ff !important;
+    transform: scale(1.02);
+  }
+  form input:hover, form select:hover, form textarea:hover {
+    animation: wiggle 0.3s;
+  }
+  @keyframes wiggle {
+    0%,100% { transform: rotate(0); }
+    25% { transform: rotate(-1deg); }
+    75% { transform: rotate(1deg); }
+  }
+
+  .btn-row .btn {
+    font-family: 'Press Start 2P', cursive !important;
+    font-size: 1rem !important;
+    padding: 1.2rem 2rem !important;
+    border-radius: 40px !important;
+    border: 4px solid #fff !important;
+    text-shadow: 2px 2px 0 #000;
+    box-shadow: 0 0 25px #fff, 0 0 50px currentColor !important;
+    background: linear-gradient(45deg, #06ffa5, #3a86ff, #ff006e, #ffbe0b) !important;
+    background-size: 400% 400% !important;
+    animation: btnShift 3s linear infinite, btnPulse 1s ease-in-out infinite !important;
+    color: #fff !important;
+  }
+  @keyframes btnShift {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 400% 50%; }
+  }
+  @keyframes btnPulse {
+    0%,100% { transform: scale(1) rotate(-2deg); }
+    50% { transform: scale(1.08) rotate(2deg); }
+  }
+  .btn-row .btn:hover {
+    transform: scale(1.25) rotate(720deg) !important;
+    transition: transform 1s !important;
+  }
+  .btn-row .btn.danger {
+    background: linear-gradient(45deg, #000, #8338ec, #ff006e) !important;
+  }
+
+  .preview {
+    background: linear-gradient(135deg, #fff, #ffe4e1) !important;
+    border: 5px double #00ffff !important;
+    border-radius: 25px !important;
+    box-shadow: 0 0 40px #ff00ff, 0 0 80px #ffff00 !important;
+    animation: previewFloat 3s ease-in-out infinite;
+  }
+  @keyframes previewFloat {
+    0%,100% { transform: rotate(-2deg) translateY(0); }
+    50% { transform: rotate(2deg) translateY(-10px); }
+  }
+  .preview-title {
+    font-family: 'Bungee Shade', cursive !important;
+    font-size: 1.3rem !important;
+    background: linear-gradient(90deg, #ff006e, #8338ec, #3a86ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    letter-spacing: 3px;
+  }
+  .preview .empty {
+    font-family: 'Pacifico', cursive !important;
+    font-size: 1.2rem !important;
+    color: #ff006e !important;
+    animation: emptyWobble 1.5s ease-in-out infinite;
+  }
+  @keyframes emptyWobble {
+    0%,100% { transform: rotate(-3deg); }
+    50% { transform: rotate(3deg); }
+  }
+  .preview .list li {
+    background: linear-gradient(135deg, #fff, #e0f7fa) !important;
+    border: 3px dashed #ff006e !important;
+    animation: cardWiggle 4s ease-in-out infinite;
+  }
+  @keyframes cardWiggle {
+    0%,100% { transform: rotate(-1deg); }
+    50% { transform: rotate(1deg); }
+  }
+  .preview .list strong {
+    font-family: 'Bungee Shade', cursive;
+    font-size: 1.5rem;
+    background: linear-gradient(90deg, #ff006e, #8338ec);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .tag {
+    background: linear-gradient(45deg, #ffbe0b, #ff006e) !important;
+    color: #fff !important;
+    font-family: 'Press Start 2P', cursive !important;
+    font-size: 0.6rem !important;
+    text-shadow: 1px 1px 0 #000;
+    animation: tagPulse 1s ease-in-out infinite;
+  }
+  @keyframes tagPulse {
+    0%,100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+  }
+
+  .marquee-add {
+    overflow: hidden;
+    white-space: nowrap;
+    background: #000;
+    color: #ff006e;
+    padding: 0.8rem 0;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.1rem;
+    border-top: 4px solid #ffff00;
+    border-bottom: 4px solid #00ffff;
+    margin-bottom: 1rem;
+  }
+  .marquee-add span {
+    display: inline-block;
+    padding-left: 100%;
+    animation: scroll 18s linear infinite;
+  }
+  @keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+  }
+
+  .confetti {
+    position: fixed;
+    pointer-events: none;
+    font-size: 2.5rem;
+    animation: confettiFall 5s linear infinite;
+    z-index: 1;
+  }
+  @keyframes confettiFall {
+    0% { transform: translateY(-10vh) rotate(0); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateY(110vh) rotate(1440deg); opacity: 0; }
+  }
+
+  .stonks-badge {
+    position: fixed;
+    top: 90px;
+    right: 20px;
+    background: linear-gradient(135deg, #06ffa5, #3a86ff);
+    color: #fff;
+    padding: 1rem;
+    border: 4px solid #fff;
+    border-radius: 15px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.75rem;
+    text-align: center;
+    box-shadow: 0 0 30px #00ffff;
+    animation: stonksBounce 1.5s ease-in-out infinite;
+    z-index: 100;
+    transform: rotate(15deg);
+  }
+  @keyframes stonksBounce {
+    0%,100% { transform: rotate(15deg) scale(1); }
+    50% { transform: rotate(-15deg) scale(1.1); }
+  }
+
+  .warning-tape {
+    position: fixed;
+    top: 90px;
+    left: -50px;
+    width: 300px;
+    background: repeating-linear-gradient(45deg, #ffff00 0, #ffff00 20px, #000 20px, #000 40px);
+    color: #fff;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.9rem;
+    padding: 0.6rem;
+    text-align: center;
+    transform: rotate(-20deg);
+    text-shadow: 2px 2px 0 #000, -2px -2px 0 #ff006e;
+    box-shadow: 0 0 20px #000;
+    z-index: 100;
+    letter-spacing: 2px;
+  }
+</style>
 </head>
-<body>
+<body class="flashy">
 <nav>
-  <a href="index.html" class="brand">📚 Booklog</a>
+  <a href="index.html" class="brand">📚✨ Booklog 🌈</a>
   <div>
-    <a href="index.html">Home</a>
-    <a href="books.html">Books</a>
-    <a href="add.html" class="active">Add</a>
-    <a href="about.html">About</a>
+    <a href="index.html">🏠 Home</a>
+    <a href="books.html">📖 Books</a>
+    <a href="add.html" class="active">➕ Add</a>
+    <a href="about.html">💁 About</a>
   </div>
 </nav>
+<div class="marquee-add"><span>💥💥💥 신규 등록!! 💥💥💥 🔥 지금 바로 책을 추가하세요!! 🔥 🎁 무료!! 🎁 무한!! 🎁 무적!! ⚡ 클릭만 하면 저장!! ⚡ 🌟 당신의 독서 인생이 바뀝니다!! 🌟 🚀🚀🚀 GO GO GO 🚀🚀🚀</span></div>
+<div class="warning-tape">⚠️ 책 추가 구역 ⚠️</div>
+<div class="stonks-badge">📈<br>STONKS!!<br>독서력 UP</div>
 <main>
-  <h1>책 추가</h1>
+  <h1 class="add-title">💥 책 추가 💥</h1>
   <div class="add-wrap">
     <form id="form" onsubmit="return addBook(event)" oninput="updatePreview()">
       <div class="row">
-        <label>제목 <input name="title" required /></label>
-        <label>저자 <input name="author" required /></label>
+        <label>📘 제목 <input name="title" required /></label>
+        <label>✍️ 저자 <input name="author" required /></label>
       </div>
       <div class="row">
-        <label>카테고리
+        <label>🏷️ 카테고리
           <select name="category">
             <option>소설</option><option>에세이</option><option>자기계발</option>
             <option>개발</option><option>교양</option><option>경제/경영</option>
             <option>기타</option>
           </select>
         </label>
-        <label>별점
+        <label>⭐ 별점
           <select name="rating">
             <option>5</option><option>4</option><option selected>3</option>
             <option>2</option><option>1</option>
@@ -39,20 +316,20 @@
         </label>
       </div>
       <div class="row">
-        <label>페이지 수 <input name="pages" type="number" min="1" placeholder="예: 320" /></label>
-        <label>읽은 날짜 <input name="date" type="date" /></label>
+        <label>📄 페이지 수 <input name="pages" type="number" min="1" placeholder="예: 320" /></label>
+        <label>📅 읽은 날짜 <input name="date" type="date" /></label>
       </div>
-      <label>표지 이미지 URL (선택) <input name="cover" type="url" placeholder="https://..." /></label>
-      <label>태그 (쉼표로 구분) <input name="tags" placeholder="예: 추천, 재독, 2026" /></label>
-      <label>한줄평 <textarea name="note" rows="3"></textarea></label>
+      <label>🖼️ 표지 이미지 URL <input name="cover" type="url" placeholder="https://..." /></label>
+      <label>🏷️ 태그 (쉼표 구분) <input name="tags" placeholder="예: 추천, 재독, 2026" /></label>
+      <label>💬 한줄평 <textarea name="note" rows="3"></textarea></label>
       <div class="btn-row">
-        <button class="btn" type="submit">저장</button>
-        <button class="btn danger" type="reset" onclick="setTimeout(updatePreview,0)">초기화</button>
+        <button class="btn" type="submit">🚀 저장하기 🚀</button>
+        <button class="btn danger" type="reset" onclick="setTimeout(updatePreview,0)">💣 초기화 💣</button>
       </div>
     </form>
 
     <aside class="preview" id="preview">
-      <span class="empty">입력하는 내용이 여기 미리보기로 표시돼요.</span>
+      <span class="empty">✨ 입력하는 내용이 여기 미리보기로 표시돼요 ✨</span>
     </aside>
   </div>
 </main>
@@ -60,6 +337,16 @@
 <script>
   document.querySelector('input[name="date"]').value = new Date().toISOString().slice(0, 10);
   updatePreview();
+  const items = ['🎉','🎊','✨','💖','⭐','💫','🌈','🎆','💎','🔥','🚀','🎁','💥','🏆','🎯'];
+  setInterval(() => {
+    const c = document.createElement('div');
+    c.className = 'confetti';
+    c.textContent = items[Math.floor(Math.random() * items.length)];
+    c.style.left = Math.random() * 100 + 'vw';
+    c.style.animationDuration = (3 + Math.random() * 4) + 's';
+    document.body.appendChild(c);
+    setTimeout(() => c.remove(), 8000);
+  }, 300);
 </script>
 </body>
 </html>
