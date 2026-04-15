@@ -2,30 +2,273 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8" />
-<title>권영훈에 대해서</title>
+<title>💎👑 권영훈에 대해서 👑💎</title>
 <link rel="stylesheet" href="style.css" />
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Pacifico&family=Press+Start+2P&display=swap');
+
+  body.flashy-about {
+    background:
+      radial-gradient(circle at 20% 30%, #ff00ff 0%, transparent 40%),
+      radial-gradient(circle at 80% 70%, #00ffff 0%, transparent 40%),
+      radial-gradient(circle at 50% 50%, #ffff00 0%, transparent 30%),
+      linear-gradient(135deg, #ff006e, #8338ec, #3a86ff, #06ffa5, #ffbe0b);
+    background-size: 200% 200%, 200% 200%, 200% 200%, 400% 400%;
+    animation: bgmove 10s ease infinite;
+    overflow-x: hidden;
+    color: #fff;
+  }
+  @keyframes bgmove {
+    0%,100% { background-position: 0% 0%, 100% 100%, 50% 50%, 0% 50%; }
+    50% { background-position: 100% 100%, 0% 0%, 100% 0%, 100% 50%; }
+  }
+
+  body.flashy-about nav {
+    background: linear-gradient(90deg, #ff0080, #7928ca, #0070f3, #00ff88, #ffbe0b);
+    background-size: 400% 400%;
+    animation: navshift 5s linear infinite;
+    border-bottom: 6px groove gold;
+    box-shadow: 0 0 40px gold;
+  }
+  @keyframes navshift {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+  }
+  body.flashy-about nav a, body.flashy-about nav .brand {
+    color: #fff !important;
+    text-shadow: 0 0 10px #fff, 2px 2px 0 #000, -2px -2px 0 #ff00ff;
+    font-family: 'Bungee Shade', cursive;
+    font-size: 1.25rem;
+  }
+  body.flashy-about nav a.active {
+    background: gold;
+    color: #000 !important;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    animation: glow 1s ease-in-out infinite alternate;
+  }
+  @keyframes glow {
+    from { box-shadow: 0 0 10px gold, 0 0 20px gold; }
+    to { box-shadow: 0 0 30px gold, 0 0 60px gold, 0 0 90px gold; }
+  }
+
+  .hero-about {
+    text-align: center;
+    padding: 3rem 1rem;
+  }
+  .hero-about h1 {
+    font-family: 'Bungee Shade', cursive;
+    font-size: clamp(3rem, 10vw, 7rem);
+    color: transparent;
+    background: linear-gradient(90deg, gold, #fff, gold, #ff00ff, gold);
+    background-size: 400% 400%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: shimmer 3s linear infinite, floaty 4s ease-in-out infinite;
+    text-shadow: 0 0 30px rgba(255,215,0,0.8);
+  }
+  @keyframes shimmer {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 400% 0%; }
+  }
+  @keyframes floaty {
+    0%,100% { transform: translateY(0) rotate(-1deg); }
+    50% { transform: translateY(-15px) rotate(1deg); }
+  }
+
+  .profile-card {
+    max-width: 700px;
+    margin: 2rem auto;
+    padding: 2.5rem;
+    background: rgba(0,0,0,0.7);
+    border: 5px solid transparent;
+    border-image: linear-gradient(45deg, gold, #ff00ff, #00ffff, gold) 1;
+    border-radius: 24px;
+    box-shadow: 0 0 50px gold, 0 0 100px #ff00ff, inset 0 0 30px rgba(255,215,0,0.2);
+    backdrop-filter: blur(10px);
+    animation: cardfloat 6s ease-in-out infinite;
+  }
+  @keyframes cardfloat {
+    0%,100% { transform: translateY(0) rotate(-0.5deg); }
+    50% { transform: translateY(-10px) rotate(0.5deg); }
+  }
+
+  .profile-card p {
+    font-family: 'Pacifico', cursive;
+    font-size: 1.4rem;
+    line-height: 1.8;
+    color: #fff;
+    text-shadow: 2px 2px 0 #000, 0 0 10px #ff00ff;
+  }
+  .profile-card h2 {
+    font-family: 'Bungee Shade', cursive;
+    font-size: 2.5rem;
+    background: linear-gradient(90deg, gold, #ff00ff, #00ffff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 4s linear infinite;
+    text-align: center;
+    margin-top: 2rem;
+  }
+
+  .tech-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+  .tech-list li {
+    padding: 1.2rem;
+    text-align: center;
+    background: linear-gradient(135deg, #ff006e, #8338ec);
+    background-size: 200% 200%;
+    border: 3px dashed #fff;
+    border-radius: 16px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.85rem;
+    color: #fff;
+    text-shadow: 2px 2px 0 #000;
+    box-shadow: 0 0 20px rgba(255,255,255,0.5);
+    animation: techwiggle 3s ease-in-out infinite, navshift 4s linear infinite;
+    transition: transform 0.2s;
+  }
+  .tech-list li:nth-child(2) { animation-delay: -1s; background: linear-gradient(135deg, #06ffa5, #3a86ff); }
+  .tech-list li:nth-child(3) { animation-delay: -2s; background: linear-gradient(135deg, #ffbe0b, #ff006e); }
+  .tech-list li:hover { transform: scale(1.15) rotate(5deg); }
+  @keyframes techwiggle {
+    0%,100% { transform: rotate(-2deg); }
+    50% { transform: rotate(2deg); }
+  }
+
+  code {
+    background: linear-gradient(90deg, #ff00ff, #00ffff) !important;
+    color: #000 !important;
+    font-weight: bold;
+    padding: 0.2rem 0.6rem !important;
+    border-radius: 6px;
+    box-shadow: 0 0 10px #fff;
+  }
+
+  .nuke-btn {
+    display: block;
+    margin: 3rem auto 2rem;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.3rem;
+    padding: 1.5rem 3rem;
+    border: 5px double #fff;
+    border-radius: 16px;
+    background: linear-gradient(45deg, #ff0000, #ff6600, #ffcc00, #ff0000);
+    background-size: 400% 400%;
+    color: #fff;
+    text-shadow: 3px 3px 0 #000;
+    cursor: pointer;
+    box-shadow: 0 0 30px #ff0000, 0 0 60px #ff6600, inset 0 0 20px rgba(255,255,255,0.5);
+    animation: danger 0.6s ease-in-out infinite, navshift 2s linear infinite;
+  }
+  @keyframes danger {
+    0%,100% { transform: scale(1) rotate(-2deg); box-shadow: 0 0 30px #ff0000, 0 0 60px #ff6600; }
+    50% { transform: scale(1.1) rotate(2deg); box-shadow: 0 0 50px #ff0000, 0 0 100px #ffff00; }
+  }
+  .nuke-btn:hover { animation-duration: 0.2s, 1s; }
+
+  .crown {
+    position: fixed;
+    top: 90px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 5rem;
+    animation: crownbounce 2s ease-in-out infinite;
+    z-index: 100;
+    filter: drop-shadow(0 0 20px gold);
+  }
+  @keyframes crownbounce {
+    0%,100% { transform: translateX(-50%) translateY(0) rotate(-5deg); }
+    50% { transform: translateX(-50%) translateY(-15px) rotate(5deg); }
+  }
+
+  .firework {
+    position: fixed;
+    pointer-events: none;
+    font-size: 3rem;
+    animation: boom 2s ease-out forwards;
+    z-index: 5;
+  }
+  @keyframes boom {
+    0% { transform: scale(0) rotate(0deg); opacity: 1; }
+    100% { transform: scale(3) rotate(360deg); opacity: 0; }
+  }
+
+  .side-emoji-left, .side-emoji-right {
+    position: fixed;
+    top: 50%;
+    font-size: 4rem;
+    z-index: 5;
+    animation: sidewiggle 1.5s ease-in-out infinite;
+  }
+  .side-emoji-left { left: 10px; }
+  .side-emoji-right { right: 10px; }
+  @keyframes sidewiggle {
+    0%,100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-30px) scale(1.3); }
+  }
+
+  .rainbow-line {
+    height: 8px;
+    background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet, red);
+    background-size: 200% 100%;
+    animation: rainbowmove 2s linear infinite;
+  }
+  @keyframes rainbowmove {
+    0% { background-position: 0% 0; }
+    100% { background-position: 200% 0; }
+  }
+</style>
 </head>
-<body>
+<body class="flashy-about">
+<div class="crown">👑</div>
+<div class="side-emoji-left">🎊</div>
+<div class="side-emoji-right">🎉</div>
 <nav>
-  <a href="index.html" class="brand">📚 Booklog</a>
+  <a href="index.html" class="brand">📚✨ Booklog 🌈</a>
   <div>
-    <a href="index.html">Home</a>
-    <a href="books.html">Books</a>
-    <a href="add.html">Add</a>
-    <a href="about.html" class="active">About</a>
+    <a href="index.html">🏠 Home</a>
+    <a href="books.html">📖 Books</a>
+    <a href="add.html">➕ Add</a>
+    <a href="about.html" class="active">💁 About</a>
   </div>
 </nav>
+<div class="rainbow-line"></div>
 <main>
-  <h1>About</h1>
-  <p>Booklog은 백엔드 없이 동작하는 미니 독서 기록장입니다. 모든 데이터는 브라우저의 <code>localStorage</code>에 저장돼요.</p>
-  <h2>기술 스택</h2>
-  <ul>
-    <li>HTML / CSS / Vanilla JS</li>
-    <li>localStorage 영속화</li>
-    <li>4페이지 정적 라우팅</li>
-  </ul>
-  <button class="btn danger" onclick="resetAll()">전체 초기화</button>
+  <section class="hero-about">
+    <h1>💎 ABOUT 💎</h1>
+  </section>
+  <div class="profile-card">
+    <p>🌟 <strong>Booklog</strong>은 백엔드 없이 동작하는 <em>초!슈퍼!울트라!</em> 미니 독서 기록장입니다!! 💖<br>
+    모든 데이터는 브라우저의 <code>localStorage</code>에 저장돼요!! ✨🎉</p>
+    <h2>🚀 기술 스택 🚀</h2>
+    <ul class="tech-list">
+      <li>💻 HTML / CSS<br>Vanilla JS 💛</li>
+      <li>💾 localStorage<br>영속화!! 🔥</li>
+      <li>🗺️ 4페이지<br>정적 라우팅 ⚡</li>
+    </ul>
+    <button class="nuke-btn" onclick="if(confirm('🚨 정말로?! 🚨')) resetAll()">💥🔥 전체 초기화 🔥💥</button>
+  </div>
 </main>
+<div class="rainbow-line"></div>
 <script src="app.js"></script>
+<script>
+  const boomEmojis = ['🎆','🎇','✨','💥','🌟','💫','⭐','🎊','🎉'];
+  setInterval(() => {
+    const f = document.createElement('div');
+    f.className = 'firework';
+    f.textContent = boomEmojis[Math.floor(Math.random() * boomEmojis.length)];
+    f.style.left = Math.random() * 100 + 'vw';
+    f.style.top = Math.random() * 100 + 'vh';
+    document.body.appendChild(f);
+    setTimeout(() => f.remove(), 2000);
+  }, 400);
+</script>
 </body>
 </html>
