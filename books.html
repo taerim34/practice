@@ -19,6 +19,46 @@
   <h1>내 책장</h1>
   <input id="q" placeholder="제목·저자 검색…" oninput="renderBooks()" />
   <ul id="list" class="list"></ul>
+
+  <h2 style="margin-top:3rem">📖 추천 도서</h2>
+  <p style="color:#64748b;margin-top:-.4rem">권영훈이 골라본, 한 번쯤 읽어볼 만한 책들.</p>
+  <ul class="list recommend">
+    <li>
+      <div>
+        <strong>사피엔스</strong> <span class="tag">교양</span>
+        <div class="meta">유발 하라리 · 김영사</div>
+        <div class="note">"인류의 거대한 흐름을 한 권으로 훑어볼 수 있는 책."</div>
+      </div>
+    </li>
+    <li>
+      <div>
+        <strong>아주 작은 습관의 힘</strong> <span class="tag">자기계발</span>
+        <div class="meta">제임스 클리어 · 비즈니스북스</div>
+        <div class="note">"1%의 변화가 어떻게 인생을 바꾸는지 보여준다."</div>
+      </div>
+    </li>
+    <li>
+      <div>
+        <strong>달러구트 꿈 백화점</strong> <span class="tag">소설</span>
+        <div class="meta">이미예 · 팩토리나인</div>
+        <div class="note">"잠들기 전에 읽기 좋은 따뜻한 판타지."</div>
+      </div>
+    </li>
+    <li>
+      <div>
+        <strong>클린 코드</strong> <span class="tag">개발</span>
+        <div class="meta">로버트 C. 마틴 · 인사이트</div>
+        <div class="note">"개발자라면 한 번은 거쳐가야 하는 고전."</div>
+      </div>
+    </li>
+    <li>
+      <div>
+        <strong>역행자</strong> <span class="tag">자기계발</span>
+        <div class="meta">자청 · 웅진지식하우스</div>
+        <div class="note">"평범한 삶을 벗어나는 7단계 모델."</div>
+      </div>
+    </li>
+  </ul>
 </main>
 <script src="app.js"></script>
 <script>renderBooks();</script>
