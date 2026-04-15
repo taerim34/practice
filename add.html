@@ -9,14 +9,48 @@
 
   body.flashy {
     background:
-      radial-gradient(circle at 20% 30%, rgba(255,0,110,0.9), transparent 40%),
-      radial-gradient(circle at 80% 60%, rgba(58,134,255,0.9), transparent 40%),
-      radial-gradient(circle at 50% 90%, rgba(6,255,165,0.9), transparent 40%),
-      linear-gradient(135deg, #ffbe0b, #ff006e, #8338ec);
-    background-size: 100% 100%, 100% 100%, 100% 100%, 400% 400%;
-    animation: bgShift 6s ease infinite;
+      radial-gradient(circle at 20% 30%, rgba(255,0,110,1), transparent 35%),
+      radial-gradient(circle at 80% 60%, rgba(58,134,255,1), transparent 35%),
+      radial-gradient(circle at 50% 90%, rgba(6,255,165,1), transparent 35%),
+      radial-gradient(circle at 70% 20%, rgba(255,190,11,1), transparent 35%),
+      radial-gradient(circle at 30% 70%, rgba(131,56,236,1), transparent 35%),
+      conic-gradient(from 0deg at 50% 50%, #ff006e, #ffbe0b, #06ffa5, #3a86ff, #8338ec, #ff006e);
+    background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 200% 200%;
+    animation: bgShift 4s ease infinite, bgSpin 8s linear infinite;
     overflow-x: hidden;
     min-height: 100vh;
+  }
+  @keyframes bgSpin {
+    0% { filter: hue-rotate(0deg); }
+    100% { filter: hue-rotate(360deg); }
+  }
+  body.flashy::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      repeating-linear-gradient(0deg, transparent 0, transparent 40px, rgba(255,255,255,0.05) 40px, rgba(255,255,255,0.05) 42px),
+      repeating-linear-gradient(90deg, transparent 0, transparent 40px, rgba(255,255,255,0.05) 40px, rgba(255,255,255,0.05) 42px);
+    pointer-events: none;
+    z-index: 0;
+    animation: gridMove 3s linear infinite;
+  }
+  @keyframes gridMove {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(42px, 42px); }
+  }
+  body.flashy::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle at 50% 50%, transparent 30%, rgba(0,0,0,0.3) 100%);
+    pointer-events: none;
+    z-index: 1;
+    animation: vignette 2s ease-in-out infinite alternate;
+  }
+  @keyframes vignette {
+    0% { opacity: 0.3; }
+    100% { opacity: 0.8; }
   }
   @keyframes bgShift {
     0%,100% { background-position: 0 0, 100% 100%, 50% 50%, 0% 50%; }
@@ -50,42 +84,111 @@
 
   .add-title {
     font-family: 'Rubik Glitch', cursive;
-    font-size: clamp(2.5rem, 8vw, 5.5rem);
+    font-size: clamp(3rem, 10vw, 7rem);
     text-align: center;
-    color: #fff;
-    text-shadow:
-      4px 4px 0 #ff006e,
-      -4px -4px 0 #00ffff,
-      0 0 30px #ffff00;
+    background: linear-gradient(90deg, #ff006e, #ffbe0b, #06ffa5, #00ffff, #8338ec, #ff006e);
+    background-size: 600% 600%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(4px 4px 0 #000) drop-shadow(-4px -4px 0 #fff) drop-shadow(0 0 40px #ff00ff);
     margin: 2rem 0;
-    animation: titleJump 0.8s ease-in-out infinite;
-    letter-spacing: 4px;
+    animation: titleJump 0.6s ease-in-out infinite, titleRainbow 3s linear infinite, titleGlitch 0.15s infinite;
+    letter-spacing: 6px;
   }
   @keyframes titleJump {
-    0%,100% { transform: translateY(0) rotate(-2deg); }
-    50% { transform: translateY(-15px) rotate(2deg); }
+    0%,100% { transform: translateY(0) rotate(-3deg) scale(1); }
+    50% { transform: translateY(-25px) rotate(3deg) scale(1.05); }
+  }
+  @keyframes titleRainbow {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 600% 50%; }
+  }
+  @keyframes titleGlitch {
+    0%,100% { transform: translate(0) translateY(0) rotate(-3deg); }
+    20% { transform: translate(-3px, 2px) rotate(-3deg); }
+    40% { transform: translate(3px, -2px) rotate(-3deg); }
+    60% { transform: translate(-2px, 3px) rotate(-3deg); }
+    80% { transform: translate(2px, -3px) rotate(-3deg); }
+  }
+  .add-title-shadow {
+    position: relative;
+    display: block;
+  }
+  .add-title-shadow::before,
+  .add-title-shadow::after {
+    content: '💥 책 추가 💥';
+    position: absolute;
+    inset: 0;
+    color: transparent;
+    -webkit-text-stroke: 2px #fff;
+    pointer-events: none;
+  }
+  .add-title-shadow::before { animation: ghostL 2s ease-in-out infinite; }
+  .add-title-shadow::after { animation: ghostR 2s ease-in-out infinite; }
+  @keyframes ghostL {
+    0%,100% { transform: translate(0); opacity: 0.5; -webkit-text-stroke-color: #ff006e; }
+    50% { transform: translate(-15px, 5px); opacity: 0.8; -webkit-text-stroke-color: #00ffff; }
+  }
+  @keyframes ghostR {
+    0%,100% { transform: translate(0); opacity: 0.5; -webkit-text-stroke-color: #00ffff; }
+    50% { transform: translate(15px, -5px); opacity: 0.8; -webkit-text-stroke-color: #ffff00; }
   }
 
   .add-wrap {
-    background: rgba(0,0,0,0.5);
+    background: rgba(0,0,0,0.6);
     backdrop-filter: blur(10px);
-    border: 5px double #ffff00;
+    border: 6px double #ffff00;
     border-radius: 30px;
     padding: 2rem !important;
-    box-shadow: 0 0 40px #ff00ff, 0 0 80px #00ffff, inset 0 0 40px rgba(255,0,110,0.3);
-    animation: wrapGlow 3s ease-in-out infinite;
+    box-shadow:
+      0 0 40px #ff00ff,
+      0 0 80px #00ffff,
+      inset 0 0 40px rgba(255,0,110,0.3);
+    animation: wrapGlow 2s ease-in-out infinite, wrapTilt 5s ease-in-out infinite;
+    position: relative;
   }
   @keyframes wrapGlow {
-    0%,100% { box-shadow: 0 0 40px #ff00ff, 0 0 80px #00ffff; }
-    50% { box-shadow: 0 0 60px #ffff00, 0 0 120px #ff006e; }
+    0% { box-shadow: 0 0 40px #ff00ff, 0 0 80px #00ffff, inset 0 0 40px rgba(255,0,110,0.3); border-color: #ffff00; }
+    33% { box-shadow: 0 0 60px #ffff00, 0 0 120px #ff006e, inset 0 0 60px rgba(0,255,255,0.4); border-color: #ff006e; }
+    66% { box-shadow: 0 0 60px #06ffa5, 0 0 120px #8338ec, inset 0 0 60px rgba(255,255,0,0.4); border-color: #00ffff; }
+    100% { box-shadow: 0 0 40px #ff00ff, 0 0 80px #00ffff, inset 0 0 40px rgba(255,0,110,0.3); border-color: #ffff00; }
+  }
+  @keyframes wrapTilt {
+    0%,100% { transform: perspective(1000px) rotateX(0) rotateY(0); }
+    25% { transform: perspective(1000px) rotateX(2deg) rotateY(-2deg); }
+    75% { transform: perspective(1000px) rotateX(-2deg) rotateY(2deg); }
+  }
+  .add-wrap::before {
+    content: '';
+    position: absolute;
+    inset: -10px;
+    background: conic-gradient(from 0deg, #ff006e, #ffbe0b, #06ffa5, #00ffff, #8338ec, #ff006e);
+    border-radius: 35px;
+    z-index: -1;
+    animation: conicSpin 3s linear infinite;
+    filter: blur(10px);
+  }
+  @keyframes conicSpin {
+    0% { transform: rotate(0); }
+    100% { transform: rotate(360deg); }
   }
 
   form label {
     font-family: 'Press Start 2P', cursive !important;
-    font-size: 0.75rem !important;
-    color: #ffff00 !important;
-    text-shadow: 2px 2px 0 #000, 0 0 10px #ff00ff;
-    letter-spacing: 1px;
+    font-size: 0.8rem !important;
+    background: linear-gradient(90deg, #ffff00, #ff006e, #00ffff, #ffff00);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(2px 2px 0 #000) drop-shadow(0 0 8px #ff00ff);
+    letter-spacing: 2px;
+    animation: labelRainbow 3s linear infinite;
+  }
+  @keyframes labelRainbow {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 300% 50%; }
   }
   form input, form select, form textarea {
     background: rgba(255,255,255,0.95) !important;
@@ -227,15 +330,83 @@
   .confetti {
     position: fixed;
     pointer-events: none;
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     animation: confettiFall 5s linear infinite;
-    z-index: 1;
+    z-index: 50;
+    filter: drop-shadow(0 0 10px #ff00ff);
   }
   @keyframes confettiFall {
-    0% { transform: translateY(-10vh) rotate(0); opacity: 0; }
-    10% { opacity: 1; }
+    0% { transform: translateY(-10vh) rotate(0) scale(0.5); opacity: 0; }
+    10% { opacity: 1; transform: translateY(0) rotate(180deg) scale(1.2); }
+    50% { transform: translateY(50vh) rotate(720deg) scale(1); }
     90% { opacity: 1; }
-    100% { transform: translateY(110vh) rotate(1440deg); opacity: 0; }
+    100% { transform: translateY(110vh) rotate(1800deg) scale(0.3); opacity: 0; }
+  }
+
+  .laser {
+    position: fixed;
+    top: 0; left: 50%;
+    width: 4px;
+    height: 100vh;
+    background: linear-gradient(180deg, transparent, #ff006e, #ffff00, #00ffff, transparent);
+    transform-origin: top center;
+    animation: laserSweep 3s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 2;
+    box-shadow: 0 0 20px #ff006e, 0 0 40px #ff006e;
+  }
+  .laser:nth-child(2) { animation-delay: -1s; animation-duration: 4s; }
+  .laser:nth-child(3) { animation-delay: -2s; animation-duration: 5s; }
+  @keyframes laserSweep {
+    0%,100% { transform: rotate(-45deg); opacity: 0.3; }
+    50% { transform: rotate(45deg); opacity: 1; }
+  }
+
+  .blinker {
+    position: fixed;
+    top: 50%;
+    left: 20px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1rem;
+    color: #ff006e;
+    text-shadow: 0 0 10px #ff006e, 0 0 20px #ff006e, 2px 2px 0 #000;
+    animation: blinker 0.4s steps(2) infinite;
+    z-index: 100;
+    writing-mode: vertical-rl;
+    letter-spacing: 4px;
+  }
+  @keyframes blinker {
+    0%,49% { opacity: 1; }
+    50%,100% { opacity: 0; }
+  }
+
+  .screaming {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    font-size: 5rem;
+    animation: scream 0.2s ease-in-out infinite;
+    z-index: 100;
+    filter: drop-shadow(0 0 20px #ffff00);
+  }
+  @keyframes scream {
+    0%,100% { transform: rotate(-10deg) scale(1); }
+    50% { transform: rotate(10deg) scale(1.2); }
+  }
+
+  .ribbon-top {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background: repeating-linear-gradient(90deg, #ff006e 0, #ff006e 30px, #ffff00 30px, #ffff00 60px);
+    height: 15px;
+    animation: ribbonSlide 2s linear infinite;
+    z-index: 50;
+  }
+  @keyframes ribbonSlide {
+    0% { background-position: 0 0; }
+    100% { background-position: 60px 0; }
   }
 
   .stonks-badge {
@@ -289,11 +460,17 @@
     <a href="about.html">💁 About</a>
   </div>
 </nav>
-<div class="marquee-add"><span>💥💥💥 신규 등록!! 💥💥💥 🔥 지금 바로 책을 추가하세요!! 🔥 🎁 무료!! 🎁 무한!! 🎁 무적!! ⚡ 클릭만 하면 저장!! ⚡ 🌟 당신의 독서 인생이 바뀝니다!! 🌟 🚀🚀🚀 GO GO GO 🚀🚀🚀</span></div>
+<div class="ribbon-top"></div>
+<div class="laser"></div>
+<div class="laser"></div>
+<div class="laser"></div>
+<div class="blinker">🚨 LIVE 🚨</div>
+<div class="screaming">📣</div>
+<div class="marquee-add"><span>💥💥💥 신규 등록!! 💥💥💥 🔥 지금 바로 책을 추가하세요!! 🔥 🎁 무료!! 🎁 무한!! 🎁 무적!! ⚡ 클릭만 하면 저장!! ⚡ 🌟 당신의 독서 인생이 바뀝니다!! 🌟 🚀🚀🚀 GO GO GO 🚀🚀🚀 💎 한정판 이벤트 💎 🎰 대박찬스 🎰</span></div>
 <div class="warning-tape">⚠️ 책 추가 구역 ⚠️</div>
 <div class="stonks-badge">📈<br>STONKS!!<br>독서력 UP</div>
 <main>
-  <h1 class="add-title">💥 책 추가 💥</h1>
+  <h1 class="add-title add-title-shadow">💥 책 추가 💥</h1>
   <div class="add-wrap">
     <form id="form" onsubmit="return addBook(event)" oninput="updatePreview()">
       <div class="row">
@@ -337,16 +514,21 @@
 <script>
   document.querySelector('input[name="date"]').value = new Date().toISOString().slice(0, 10);
   updatePreview();
-  const items = ['🎉','🎊','✨','💖','⭐','💫','🌈','🎆','💎','🔥','🚀','🎁','💥','🏆','🎯'];
+  const items = ['🎉','🎊','✨','💖','⭐','💫','🌈','🎆','💎','🔥','🚀','🎁','💥','🏆','🎯','📚','💸','👑','🦄','⚡'];
   setInterval(() => {
     const c = document.createElement('div');
     c.className = 'confetti';
     c.textContent = items[Math.floor(Math.random() * items.length)];
     c.style.left = Math.random() * 100 + 'vw';
-    c.style.animationDuration = (3 + Math.random() * 4) + 's';
+    c.style.animationDuration = (2.5 + Math.random() * 3.5) + 's';
+    c.style.fontSize = (1.8 + Math.random() * 2) + 'rem';
     document.body.appendChild(c);
     setTimeout(() => c.remove(), 8000);
-  }, 300);
+  }, 120);
+  setInterval(() => {
+    document.body.style.filter = `hue-rotate(${Math.random() * 360}deg) saturate(${1 + Math.random()})`;
+    setTimeout(() => { document.body.style.filter = ''; }, 80);
+  }, 1500);
 </script>
 </body>
 </html>
