@@ -2,32 +2,243 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8" />
-<title>권영훈</title>
+<title>✨🌈 권영훈의 초화려 북로그 🌈✨</title>
 <link rel="stylesheet" href="style.css" />
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Pacifico&family=Press+Start+2P&display=swap');
+
+  body.flashy {
+    background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
+    background-size: 1800% 1800%;
+    animation: rainbow 8s ease infinite;
+    overflow-x: hidden;
+  }
+  @keyframes rainbow {
+    0% { background-position: 0% 82%; }
+    50% { background-position: 100% 19%; }
+    100% { background-position: 0% 82%; }
+  }
+
+  body.flashy nav {
+    background: linear-gradient(90deg, #ff006e, #fb5607, #ffbe0b, #8338ec, #3a86ff);
+    background-size: 400% 400%;
+    animation: navshift 4s linear infinite;
+    border-bottom: 4px dashed #fff;
+    box-shadow: 0 0 30px #fff, 0 0 60px #ff00ff;
+  }
+  @keyframes navshift {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+  }
+  body.flashy nav a, body.flashy nav .brand {
+    color: #fff !important;
+    text-shadow: 0 0 8px #fff, 0 0 16px #ff00ff, 2px 2px 0 #000;
+    font-family: 'Bungee Shade', cursive;
+    font-size: 1.3rem;
+  }
+  body.flashy nav a:hover { animation: shake 0.3s infinite; transform: scale(1.3); }
+  @keyframes shake {
+    0%,100% { transform: rotate(-5deg) scale(1.3); }
+    50% { transform: rotate(5deg) scale(1.3); }
+  }
+
+  .mega-hero {
+    text-align: center;
+    padding: 4rem 1rem;
+    position: relative;
+  }
+  .mega-hero h1 {
+    font-family: 'Bungee Shade', cursive;
+    font-size: clamp(2.5rem, 8vw, 6rem);
+    background: linear-gradient(90deg, #ff0080, #ff8c00, #ffd700, #00ff00, #00ffff, #ff00ff);
+    background-size: 600% 600%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: rainbow 4s linear infinite, bounce 1.2s ease-in-out infinite;
+    text-shadow: 0 0 40px rgba(255,255,255,0.5);
+    margin: 1rem 0;
+  }
+  @keyframes bounce {
+    0%,100% { transform: translateY(0) rotate(-2deg); }
+    50% { transform: translateY(-20px) rotate(2deg); }
+  }
+  .mega-hero p {
+    font-family: 'Pacifico', cursive;
+    font-size: 1.8rem;
+    color: #fff;
+    text-shadow: 3px 3px 0 #000, -2px -2px 0 #ff00ff, 0 0 20px #ffff00;
+    animation: wobble 2s infinite;
+  }
+  @keyframes wobble {
+    0%,100% { transform: skewX(0deg); }
+    25% { transform: skewX(-8deg); }
+    75% { transform: skewX(8deg); }
+  }
+
+  .mega-btn {
+    display: inline-block;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.2rem;
+    padding: 1.5rem 3rem;
+    margin-top: 1rem;
+    border: 5px solid #fff;
+    border-radius: 50px;
+    background: linear-gradient(45deg, #ff006e, #ffbe0b, #8338ec, #3a86ff, #06ffa5);
+    background-size: 400% 400%;
+    color: #fff !important;
+    text-shadow: 2px 2px 0 #000;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: 0 0 20px #fff, 0 0 40px #ff00ff, 0 0 60px #00ffff, inset 0 0 20px rgba(255,255,255,0.3);
+    animation: navshift 3s linear infinite, pulse 1s ease-in-out infinite;
+    transition: transform 0.2s;
+  }
+  @keyframes pulse {
+    0%,100% { transform: scale(1) rotate(-3deg); }
+    50% { transform: scale(1.15) rotate(3deg); }
+  }
+  .mega-btn:hover { transform: scale(1.4) rotate(720deg) !important; transition: transform 1s; }
+
+  .mega-stats { display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center; margin: 3rem auto; }
+  .mega-card {
+    flex: 1; min-width: 200px;
+    padding: 2rem;
+    border-radius: 24px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(255,255,255,0.7));
+    border: 4px double #ff00ff;
+    box-shadow: 0 0 25px #fff, 0 0 50px #ff00ff, 0 0 75px #00ffff;
+    text-align: center;
+    transform: rotate(-2deg);
+    animation: tilt 3s ease-in-out infinite;
+  }
+  .mega-card:nth-child(2) { transform: rotate(2deg); animation-delay: -1s; }
+  .mega-card:nth-child(3) { transform: rotate(-1deg); animation-delay: -2s; }
+  @keyframes tilt {
+    0%,100% { transform: rotate(-3deg) translateY(0); }
+    50% { transform: rotate(3deg) translateY(-15px); }
+  }
+  .mega-card h3 {
+    font-family: 'Bungee Shade', cursive;
+    font-size: 3rem;
+    background: linear-gradient(90deg, #ff0080, #00ff00, #00ffff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 0;
+  }
+  .mega-card p {
+    font-family: 'Pacifico', cursive;
+    font-size: 1.4rem;
+    color: #ff006e;
+    text-shadow: 1px 1px 0 #fff;
+    margin: 0.5rem 0 0;
+  }
+
+  .marquee {
+    overflow: hidden;
+    white-space: nowrap;
+    background: #000;
+    color: #ffff00;
+    padding: 0.8rem 0;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.2rem;
+    border-top: 4px solid #ff00ff;
+    border-bottom: 4px solid #00ffff;
+  }
+  .marquee span {
+    display: inline-block;
+    padding-left: 100%;
+    animation: scroll 18s linear infinite;
+  }
+  @keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+  }
+
+  .sparkle {
+    position: fixed;
+    pointer-events: none;
+    font-size: 2rem;
+    animation: float 6s linear infinite;
+    z-index: 1;
+  }
+  @keyframes float {
+    0% { transform: translateY(110vh) rotate(0deg); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateY(-10vh) rotate(720deg); opacity: 0; }
+  }
+
+  .disco-ball {
+    position: fixed;
+    top: 80px;
+    right: 30px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #fff, #ff00ff 30%, #00ffff 60%, #000);
+    box-shadow: 0 0 30px #fff, 0 0 60px #ff00ff;
+    animation: spin 2s linear infinite;
+    z-index: 100;
+  }
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  .siren {
+    position: fixed;
+    top: 80px;
+    left: 30px;
+    font-size: 4rem;
+    animation: siren 0.5s ease-in-out infinite;
+    z-index: 100;
+  }
+  @keyframes siren {
+    0%,100% { transform: rotate(-30deg) scale(1); filter: hue-rotate(0deg); }
+    50% { transform: rotate(30deg) scale(1.2); filter: hue-rotate(180deg); }
+  }
+</style>
 </head>
-<body>
+<body class="flashy">
+<div class="siren">🚨</div>
+<div class="disco-ball"></div>
 <nav>
-  <a href="index.html" class="brand">📚 Booklog</a>
+  <a href="index.html" class="brand">📚✨ Booklog 🌈</a>
   <div>
-    <a href="index.html">Home</a>
-    <a href="books.html">Books</a>
-    <a href="add.html">Add</a>
-    <a href="about.html">About</a>
+    <a href="index.html">🏠 Home</a>
+    <a href="books.html">📖 Books</a>
+    <a href="add.html">➕ Add</a>
+    <a href="about.html">💁 About</a>
   </div>
 </nav>
+<div class="marquee"><span>🎉🎊 환영합니다!! 세상에서 가장 화려한 독서 기록장!! 🎊🎉 ⭐ 지금 바로 시작하세요!! ⭐ 💖 책을 사랑하는 모든 분들을 위한 공간 💖 🚀 무료!! 무제한!! 무한대!! 🚀 🎁 오늘만 특별 이벤트 🎁 🌟 별점도!! 메모도!! 다 가능!! 🌟</span></div>
 <main>
-  <section class="hero">
-    <h1>읽은 책을 기록하세요</h1>
-    <p>브라우저에 저장되는 가벼운 독서 노트.</p>
-    <a class="btn" href="add.html">+ 책 추가하기</a>
+  <section class="mega-hero">
+    <h1>📚🎆 읽은 책을 기록하세요!! 🎆📚</h1>
+    <p>✨ 브라우저에 저장되는 가벼운 독서 노트 ✨</p>
+    <a class="mega-btn" href="add.html">🚀 + 책 추가하기 + 🚀</a>
   </section>
-  <section class="stats">
-    <div class="card"><h3 id="total">0</h3><p>총 기록</p></div>
-    <div class="card"><h3 id="avg">0.0</h3><p>평균 별점</p></div>
-    <div class="card"><h3 id="recent">-</h3><p>최근 추가</p></div>
+  <section class="mega-stats">
+    <div class="mega-card"><h3 id="total">0</h3><p>📊 총 기록 📊</p></div>
+    <div class="mega-card"><h3 id="avg">0.0</h3><p>⭐ 평균 별점 ⭐</p></div>
+    <div class="mega-card"><h3 id="recent">-</h3><p>🆕 최근 추가 🆕</p></div>
   </section>
 </main>
 <script src="app.js"></script>
-<script>renderHome();</script>
+<script>
+  renderHome();
+  const emojis = ['✨','🌟','💖','🎉','🎊','⭐','💫','🌈','🦄','🎆','🎇','💎','🔥','🚀','📚'];
+  setInterval(() => {
+    const s = document.createElement('div');
+    s.className = 'sparkle';
+    s.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+    s.style.left = Math.random() * 100 + 'vw';
+    s.style.animationDuration = (4 + Math.random() * 4) + 's';
+    document.body.appendChild(s);
+    setTimeout(() => s.remove(), 8000);
+  }, 250);
+</script>
 </body>
 </html>
