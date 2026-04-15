@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<title>Booklog · Home</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<nav>
+  <a href="index.html" class="brand">📚 Booklog</a>
+  <div>
+    <a href="index.html">Home</a>
+    <a href="books.html">Books</a>
+    <a href="add.html">Add</a>
+    <a href="about.html">About</a>
+  </div>
+</nav>
+<main>
+  <section class="hero">
+    <h1>읽은 책을 기록하세요</h1>
+    <p>브라우저에 저장되는 가벼운 독서 노트.</p>
+    <a class="btn" href="add.html">+ 책 추가하기</a>
+  </section>
+  <section class="stats">
+    <div class="card"><h3 id="total">0</h3><p>총 기록</p></div>
+    <div class="card"><h3 id="avg">0.0</h3><p>평균 별점</p></div>
+    <div class="card"><h3 id="recent">-</h3><p>최근 추가</p></div>
+  </section>
+</main>
+<script src="app.js"></script>
+<script>renderHome();</script>
+</body>
+</html>

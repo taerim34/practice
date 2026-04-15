@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<title>Booklog · Books</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<nav>
+  <a href="index.html" class="brand">📚 Booklog</a>
+  <div>
+    <a href="index.html">Home</a>
+    <a href="books.html" class="active">Books</a>
+    <a href="add.html">Add</a>
+    <a href="about.html">About</a>
+  </div>
+</nav>
+<main>
+  <h1>내 책장</h1>
+  <input id="q" placeholder="제목·저자 검색…" oninput="renderBooks()" />
+  <ul id="list" class="list"></ul>
+</main>
+<script src="app.js"></script>
+<script>renderBooks();</script>
+</body>
+</html>

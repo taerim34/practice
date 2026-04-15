@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<title>Booklog · Add</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<nav>
+  <a href="index.html" class="brand">📚 Booklog</a>
+  <div>
+    <a href="index.html">Home</a>
+    <a href="books.html">Books</a>
+    <a href="add.html" class="active">Add</a>
+    <a href="about.html">About</a>
+  </div>
+</nav>
+<main>
+  <h1>책 추가</h1>
+  <form id="form" onsubmit="return addBook(event)">
+    <label>제목 <input name="title" required /></label>
+    <label>저자 <input name="author" required /></label>
+    <label>별점
+      <select name="rating">
+        <option>5</option><option>4</option><option selected>3</option>
+        <option>2</option><option>1</option>
+      </select>
+    </label>
+    <label>한줄평 <textarea name="note" rows="3"></textarea></label>
+    <button class="btn" type="submit">저장</button>
+  </form>
+</main>
+<script src="app.js"></script>
+</body>
+</html>

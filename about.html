@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<title>Booklog · About</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<nav>
+  <a href="index.html" class="brand">📚 Booklog</a>
+  <div>
+    <a href="index.html">Home</a>
+    <a href="books.html">Books</a>
+    <a href="add.html">Add</a>
+    <a href="about.html" class="active">About</a>
+  </div>
+</nav>
+<main>
+  <h1>About</h1>
+  <p>Booklog은 백엔드 없이 동작하는 미니 독서 기록장입니다. 모든 데이터는 브라우저의 <code>localStorage</code>에 저장돼요.</p>
+  <h2>기술 스택</h2>
+  <ul>
+    <li>HTML / CSS / Vanilla JS</li>
+    <li>localStorage 영속화</li>
+    <li>4페이지 정적 라우팅</li>
+  </ul>
+  <button class="btn danger" onclick="resetAll()">전체 초기화</button>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
