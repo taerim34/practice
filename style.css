@@ -70,5 +70,32 @@ form input:focus, form select:focus, form textarea:focus {
 }
 .list button:hover { color: #1e40af; }
 .empty { text-align: center; color: #94a3b8; padding: 2rem; }
+.tag {
+  display: inline-block; background: #dbeafe; color: #1e40af;
+  font-size: .72rem; font-weight: 600; padding: .15rem .55rem;
+  border-radius: 999px; margin-left: .4rem; vertical-align: middle;
+}
+.list.recommend li {
+  background: linear-gradient(135deg, #fff 0%, #eff6ff 100%);
+  border-color: #bfdbfe;
+}
+.add-wrap { display: grid; grid-template-columns: 1.2fr 1fr; gap: 1.5rem; }
+@media (max-width: 720px) { .add-wrap { grid-template-columns: 1fr; } }
+.row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.btn-row { display: flex; gap: .6rem; }
+.preview {
+  background: #fff; border: 1px dashed #bfdbfe; border-radius: 12px;
+  padding: 1.2rem; min-height: 180px; height: fit-content;
+  position: sticky; top: 90px;
+}
+.preview .empty { display: block; color: #94a3b8; text-align: center; padding: 2rem 0; }
+.preview-title { margin: 0 0 .8rem; color: #2563eb; font-size: .9rem;
+  text-transform: uppercase; letter-spacing: .05em; }
+.cover {
+  width: 56px; height: 80px; object-fit: cover; border-radius: 4px;
+  margin-right: .9rem; flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,.12);
+}
+.tags-row { margin-top: .4rem; display: flex; flex-wrap: wrap; gap: .3rem; }
 code { background: #dbeafe; color: #1e40af; padding: .15rem .4rem; border-radius: 4px; font-size: .9em; }
 h1, h2 { color: #1e3a8a; }

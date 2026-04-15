@@ -17,19 +17,49 @@
 </nav>
 <main>
   <h1>책 추가</h1>
-  <form id="form" onsubmit="return addBook(event)">
-    <label>제목 <input name="title" required /></label>
-    <label>저자 <input name="author" required /></label>
-    <label>별점
-      <select name="rating">
-        <option>5</option><option>4</option><option selected>3</option>
-        <option>2</option><option>1</option>
-      </select>
-    </label>
-    <label>한줄평 <textarea name="note" rows="3"></textarea></label>
-    <button class="btn" type="submit">저장</button>
-  </form>
+  <div class="add-wrap">
+    <form id="form" onsubmit="return addBook(event)" oninput="updatePreview()">
+      <div class="row">
+        <label>제목 <input name="title" required /></label>
+        <label>저자 <input name="author" required /></label>
+      </div>
+      <div class="row">
+        <label>카테고리
+          <select name="category">
+            <option>소설</option><option>에세이</option><option>자기계발</option>
+            <option>개발</option><option>교양</option><option>경제/경영</option>
+            <option>기타</option>
+          </select>
+        </label>
+        <label>별점
+          <select name="rating">
+            <option>5</option><option>4</option><option selected>3</option>
+            <option>2</option><option>1</option>
+          </select>
+        </label>
+      </div>
+      <div class="row">
+        <label>페이지 수 <input name="pages" type="number" min="1" placeholder="예: 320" /></label>
+        <label>읽은 날짜 <input name="date" type="date" /></label>
+      </div>
+      <label>표지 이미지 URL (선택) <input name="cover" type="url" placeholder="https://..." /></label>
+      <label>태그 (쉼표로 구분) <input name="tags" placeholder="예: 추천, 재독, 2026" /></label>
+      <label>한줄평 <textarea name="note" rows="3"></textarea></label>
+      <div class="btn-row">
+        <button class="btn" type="submit">저장</button>
+        <button class="btn danger" type="reset" onclick="setTimeout(updatePreview,0)">초기화</button>
+      </div>
+    </form>
+
+    <aside class="preview" id="preview">
+      <span class="empty">입력하는 내용이 여기 미리보기로 표시돼요.</span>
+    </aside>
+  </div>
 </main>
 <script src="app.js"></script>
+<script>
+  document.querySelector('input[name="date"]').value = new Date().toISOString().slice(0, 10);
+  updatePreview();
+</script>
 </body>
 </html>
